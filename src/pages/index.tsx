@@ -1,7 +1,7 @@
 import type { NextPage } from 'next'
 
 const TopPage: NextPage = () => {
-  return <>nextjs</>
+  return <>nextjs-calendar-app</>
 }
 
 export default TopPage
