@@ -1,9 +1,11 @@
 import type { NextPage } from 'next'
 import { useRouter } from 'next/router'
 import dayjs from 'dayjs'
+import { Date } from '@/components/calendar/Date'
 
 type CalendarDate = {
-  date: string
+  month: number;
+  day: number;
 }
 
 const MonthPage: NextPage = () => {
@@ -13,14 +15,15 @@ const MonthPage: NextPage = () => {
   const dates: CalendarDate[] = [] 
   for (let i = 0; i < daysInMonth; i++) {
     dates.push({
-      date: dayjs(`${month}-01`).date(i).toISOString()
+      month: dayjs(`${month}-01`).date(i).month(),
+      day: dayjs(`${month}-01`).date(i).date(),
     })
   }
 
   return (
     <>
       {month}
-      {dates.map(v => v.date)}
+      {dates.map(v => (<Date month={v.month} day={v.day} />))}
     </>
   )
 }
