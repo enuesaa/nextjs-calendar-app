@@ -10,12 +10,12 @@ type CalendarDate = {
 
 const MonthPage: NextPage = () => {
   const router = useRouter()
-  const { month } = router.query
+  const { month } = router.query // like 2022-10
   const daysInMonth = dayjs(`${month}-01`).daysInMonth()
   const dates: CalendarDate[] = [] 
-  for (let i = 0; i < daysInMonth; i++) {
+  for (let i = 1; i <= daysInMonth; i++) {
     dates.push({
-      month: dayjs(`${month}-01`).date(i).month(),
+      month: dayjs(`${month}-01`).date(i).month() + 1,
       day: dayjs(`${month}-01`).date(i).date(),
     })
   }
