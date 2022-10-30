@@ -9,7 +9,6 @@ export function Main({ children }: Props) {
     width: '96%', // todo fix
     maxWidth: '1000px',
     margin: '0 auto',
-    background: '#222222',
     minHeight: '100vh',
     padding: '10px 0',
   })

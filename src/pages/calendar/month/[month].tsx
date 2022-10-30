@@ -5,7 +5,6 @@ import { Date } from '@/components/calendar/Date'
 import { HtmlHead } from '@/components/common/HtmlHead'
 import { Header } from '@/components/common/Header'
 import { Main } from '@/components/common/Main'
-import { Footer } from '@/components/common/Footer'
 
 type CalendarDate = {
   month: number;
@@ -32,7 +31,6 @@ const MonthPage: NextPage = () => {
         {month}
         {dates.map(v => (<Date month={v.month} day={v.day} />))}
       </Main>
-      <Footer />
     </>
   )
 }
