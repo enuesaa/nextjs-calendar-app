@@ -1,21 +1,23 @@
 import { ReactNode } from 'react'
-import styled from '@emotion/styled'
+import { css } from '@emotion/react'
 
-type Props = {
-  children: ReactNode
-}
-export function Main({ children }: Props) {
-  const Section = styled.section({
+const style = {
+  section: css({
     width: '96%', // todo fix
     maxWidth: '1000px',
     margin: '0 auto',
     minHeight: '100vh',
     padding: '10px 0',
   })
+}
 
+type Props = {
+  children: ReactNode
+}
+export function Main({ children }: Props) {
   return (
     <>
-      <Section>{children}</Section>
+      <section css={style.section}>{children}</section>
     </>
   )
 }

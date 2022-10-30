@@ -1,23 +1,23 @@
 import Link from 'next/link'
-import styled from '@emotion/styled'
+import { css } from '@emotion/react'
 
-export const Header = () => {
-  const Header = styled.header({
+const style = {
+  header: css({
     width: '100vw',
     background: '#cccccc',
-  })
-  const HeaderInner = styled.div({
+  }),
+  headerInner: css({
     margin: '0 auto',
     width: '96%',
     maxWidth: '1000px',
     color: '#1a1a1a',
-  })
-  const TopLink = styled.a({
+  }),
+  topLink: css({
     display: 'inline-block',
     fontSize: '16px',
     cursor: 'pointer',
-  })
-  const H1 = styled.h1({
+  }),
+  h1: css({
     fontSize: '23px',
     margin: '0',
     lineHeight: '1.2',
@@ -25,17 +25,19 @@ export const Header = () => {
     '&:hover': {
       background: 'rgba(0, 0, 0, 0.2)',
     },
-  })
+  }),
+} 
 
+export const Header = () => {
   return (
-    <Header>
-      <HeaderInner>
+    <header css={style.header}>
+      <div css={style.headerInner}>
         <Link href={{ pathname: '/' }}>
-          <TopLink>
-            <H1>calendar</H1>
-          </TopLink>
+          <a css={style.topLink}>
+            <h1 css={style.h1}>calendar</h1>
+          </a>
         </Link>
-      </HeaderInner>
-    </Header>
+      </div>
+    </header>
   )
 }
