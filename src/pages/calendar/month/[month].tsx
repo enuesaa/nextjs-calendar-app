@@ -1,26 +1,15 @@
 import type { NextPage } from 'next'
 import { useRouter } from 'next/router'
-import dayjs from 'dayjs'
-import { Date } from '@/components/calendar/Date'
 import { HtmlHead } from '@/components/common/HtmlHead'
 import { Header } from '@/components/common/Header'
 import { Main } from '@/components/common/Main'
-
-type CalendarDate = {
-  month: number;
-  day: number;
-}
+import { Month } from '@/components/calendar/Month'
 
 const MonthPage: NextPage = () => {
   const router = useRouter()
   const { month } = router.query // like 2022-10
-  const daysInMonth = dayjs(`${month}-01`).daysInMonth()
-  const dates: CalendarDate[] = [] 
-  for (let i = 1; i <= daysInMonth; i++) {
-    dates.push({
-      month: dayjs(`${month}-01`).date(i).month() + 1,
-      day: dayjs(`${month}-01`).date(i).date(),
-    })
+  if (month === undefined || Array.isArray(month)) {
+    return (<></>)
   }
 
   return (
@@ -28,8 +17,7 @@ const MonthPage: NextPage = () => {
       <HtmlHead />
       <Header />
       <Main>
-        {month}
-        {dates.map(v => (<Date month={v.month} day={v.day} />))}
+        <Month month={month} />
       </Main>
     </>
   )
