@@ -1,5 +1,14 @@
 import dayjs from 'dayjs'
+import { css } from '@emotion/react'
 import { Date } from '@/components/calendar/Date'
+
+const style = {
+  h3: css({
+    width: '100%',
+    fontSize: '30px',
+    fontWeight: '600',
+  }),
+}
 
 type CalendarDate = {
   month: number;
@@ -10,6 +19,7 @@ type Props = {
   month: string;
 }
 export const Month = ({ month }: Props) => {
+  /** @todo refactor */
   const daysInMonth = dayjs(`${month}-01`).daysInMonth()
   const dates: CalendarDate[] = [] 
   for (let i = 1; i <= daysInMonth; i++) {
@@ -21,9 +31,9 @@ export const Month = ({ month }: Props) => {
 
   return (
     <>
-      {month}
+      <h3 css={style.h3}>{month}</h3>
       {dates.map(v => (
-        <Date month={v.month} day={v.day} />
+        <Date key={v.day} month={v.month} day={v.day} />
       ))}
     </>
   )
