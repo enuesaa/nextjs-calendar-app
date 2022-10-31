@@ -14,6 +14,7 @@ export const Date = ({ month, day }: Props) => {
       height: '100px',
       margin: '0 auto',
       background: theme.color.sub,
+      userSelect: 'none',
       '&:hover': {
         background: theme.color.subHover,
       }

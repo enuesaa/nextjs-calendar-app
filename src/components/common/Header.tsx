@@ -9,6 +9,7 @@ export const Header = () => {
       width: '100vw',
       color: theme.color.contrast,
       background: theme.color.sub,
+      userSelect: 'none',
     }),
     headerInner: css({
       margin: '0 auto',
