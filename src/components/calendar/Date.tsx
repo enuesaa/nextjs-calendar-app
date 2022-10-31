@@ -1,23 +1,24 @@
-import { css } from "@emotion/react"
-
-const style = {
-  date: css({
-    display: 'inline-block',
-    width: '14%',
-    height: '100px',
-    maegin: '0 auto',
-    background: '#eeeeee',
-    '&:hover': {
-      background: 'rgba(0, 0, 0, 0.2)',
-    }
-  })
-}
+import { css, useTheme } from '@emotion/react'
 
 type Props = {
   month: number;
   day: number;
 }
 export const Date = ({ month, day }: Props) => {
+  const theme = useTheme()
+
+  const style = {
+    date: css({
+      display: 'inline-block',
+      width: '14%',
+      height: '100px',
+      margin: '0 auto',
+      background: theme.color.sub,
+      '&:hover': {
+        background: theme.color.subHover,
+      }
+    })
+  }  
 
   return (
     <div css={style.date}>

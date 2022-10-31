@@ -1,23 +1,31 @@
 import { ReactNode } from 'react'
-import { css } from '@emotion/react'
-
-const style = {
-  section: css({
-    width: '96%', // todo fix
-    maxWidth: '1000px',
-    margin: '0 auto',
-    minHeight: '100vh',
-    padding: '10px 0',
-  })
-}
+import { css, useTheme } from '@emotion/react'
 
 type Props = {
   children: ReactNode
 }
 export function Main({ children }: Props) {
+  const theme = useTheme()
+
+  const style = {
+    section: css({
+      width: '100vw',
+      margin: '0 auto',
+      minHeight: '100vh',
+      padding: '10px 0',
+      background: theme.color.main,
+    }),
+    sectionInner: css({
+      width: '96%',
+      margin: '0 auto',
+    })
+  }
+
   return (
-    <>
-      <section css={style.section}>{children}</section>
-    </>
+    <section css={style.section}>
+      <div css={style.sectionInner}>
+        {children}
+      </div>
+    </section>
   )
 }
