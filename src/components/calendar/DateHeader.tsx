@@ -1,18 +1,18 @@
 import { css, useTheme } from '@emotion/react'
 
 type Props = {
-  month: number;
-  date: number;
+  name: string;
 }
-export const Date = ({ month, date }: Props) => {
+export const DateHeader = ({ name }: Props) => {
   const theme = useTheme()
 
   const style = {
     date: css({
       display: 'inline-block',
       width: '14%',
-      height: '100px',
+      height: '20px',
       margin: '0 auto',
+      textAlign: 'center',
       background: theme.color.sub,
       userSelect: 'none',
       '&:hover': {
@@ -23,7 +23,7 @@ export const Date = ({ month, date }: Props) => {
 
   return (
     <div css={style.date}>
-      {`${month}/${date}`}
+      {name}
     </div>
   )
 }
