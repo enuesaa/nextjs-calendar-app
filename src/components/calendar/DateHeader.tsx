@@ -15,9 +15,6 @@ export const DateHeader = ({ name }: Props) => {
       textAlign: 'center',
       background: theme.color.sub,
       userSelect: 'none',
-      '&:hover': {
-        background: theme.color.subHover,
-      }
     })
   }  
 
