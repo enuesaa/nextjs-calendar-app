@@ -35,10 +35,8 @@ export const Header = () => {
   return (
     <header css={style.header}>
       <div css={style.headerInner}>
-        <Link href={{ pathname: '/' }}>
-          <a css={style.topLink}>
-            <h1 css={style.h1}>calendar</h1>
-          </a>
+        <Link href={{ pathname: '/' }} css={style.topLink}>
+          <h1 css={style.h1}>calendar</h1>
         </Link>
       </div>
     </header>
